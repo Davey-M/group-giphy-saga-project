@@ -1,8 +1,12 @@
 const axios = require("axios");
+const express = require('express');
+
+
+const router = express.Router();
 
 require("dotenv").config();
 
-app.get("/giphy", (req, res) => {
+router.get("/", (req, res) => {
   axios
     .get(`http://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}`)
     .then((response) => res.send(response.data))
@@ -11,3 +15,5 @@ app.get("/giphy", (req, res) => {
       res.sendStatus(500);
     });
 });
+
+module.exports = router;
