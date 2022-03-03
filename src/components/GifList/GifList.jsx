@@ -62,7 +62,15 @@ function GifList() {
             // console.log(gif);
             const name = gif.title;
             const img_url = gif.images.fixed_height.url;
-            return <GifItem key={index} name={name} img_url={img_url} />;
+            const img_id = gif.id;
+            return (
+              <GifItem
+                key={index}
+                name={name}
+                img_url={img_url}
+                img_id={img_id}
+              />
+            );
           })}
       </div>
     </>

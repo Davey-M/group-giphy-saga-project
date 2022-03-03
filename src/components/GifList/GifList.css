@@ -23,10 +23,14 @@
   top: 5px;
   left: 5px;
   display: flex;
+  max-width: 60%;
   justify-content: space-between;
   padding: 5px;
   opacity: 0;
   transition: opacity 0.2s;
+  pointer-events: none;
+  color: #333;
+  background-color: #ffffffd5;
 }
 
 .gif-card:hover .name-overlay {
@@ -37,6 +41,8 @@
   position: absolute;
   top: 5px;
   right: 5px;
+  color: #333;
+  background-color: #ffffffd5;
 }
 
 .gif-card .favorite-overlay:hover {

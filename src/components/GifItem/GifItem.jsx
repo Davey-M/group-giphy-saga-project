@@ -1,17 +1,27 @@
 import { useState } from "react";
 
-import { Button } from "@mui/material";
-
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
+import { useDispatch } from "react-redux";
 
-function GifItem({ name, img_url, fav = false }) {
+function GifItem({ name, img_url, img_id, fav = false }) {
+  const dispatch = useDispatch();
+
   // set favorite state (default to false)
   const [favorite, setFavorite] = useState(fav);
+
+  const category_id = 4;
 
   // add gif to favorite database
   const addFavorite = () => {
     console.log("Adding Favorite");
+    const postOptions = {
+      name,
+      img_url,
+      img_id,
+      category_id,
+    };
+    dispatch({ type: "POST_GIF", payload: postOptions });
     setFavorite(true);
   };
 
