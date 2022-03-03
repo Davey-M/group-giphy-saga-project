@@ -2,13 +2,15 @@ import { useState } from "react";
 
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
+import { Select, MenuItem, Paper, FormControl } from "@mui/material";
 import { useDispatch } from "react-redux";
 
-function GifItem({ name, img_url, img_id, fav = false }) {
+function GifItem({ name, img_url, img_id, fav = false, cat = 4 }) {
   const dispatch = useDispatch();
 
   // set favorite state (default to false)
   const [favorite, setFavorite] = useState(fav);
+  const [category, setCategory] = useState(cat);
 
   const category_id = 4;
 
@@ -41,6 +43,20 @@ function GifItem({ name, img_url, img_id, fav = false }) {
     <div className='gif-card'>
       <a href={img_url} target='_blank'>
         <img src={img_url} alt={name} />
+        {favorite && (
+          <Paper className='category'>
+            <Select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <MenuItem value={1}>Funny</MenuItem>
+              <MenuItem value={2}>Cohort</MenuItem>
+              <MenuItem value={3}>Cartoon</MenuItem>
+              <MenuItem value={4}>NSFW</MenuItem>
+              <MenuItem value={5}>Meme</MenuItem>
+            </Select>
+          </Paper>
+        )}
       </a>
       <div className='favorite-overlay'>
         {!favorite && (
