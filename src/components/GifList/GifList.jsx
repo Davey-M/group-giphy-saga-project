@@ -42,7 +42,12 @@ function GifList() {
   return (
     <>
       <h1>This is the GifList component</h1>
-      <ul></ul>;
+      <ul className='gif-list-container'>
+        {dummyData.map((gif) => {
+          return <GifItem {...gif} />;
+        })}
+      </ul>
+      ;
     </>
   );
 }
