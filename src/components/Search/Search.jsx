@@ -1,4 +1,4 @@
-import {TextField, Button} from '@mui/material/Button';
+import {TextField, Button} from '@mui/material';
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 
@@ -11,10 +11,11 @@ const Search = () => {
     const [search, setSearch] = useState('');
 
     // sends search query to saga to populate related gifs on button click
-    function handleSubmit() {
+    function handleSubmit(event) {
+        event.preventDefault();
         console.log('in handleSubmit');
 
-        dispatch({type: 'GET_GIFS', payload: {search: search}});
+        dispatch({type: 'GET_GIFS', payload: search});
     }
 
     return (
