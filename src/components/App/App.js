@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import GifList from '../GifList/GifList';
+import Search from '../Search/Search';
 
 function App(props) {
 
@@ -14,6 +15,7 @@ function App(props) {
   return (
     <div>
       <h1>Giphy Search!</h1>
+      <Search/>
       <GifList />
     </div>
   );
