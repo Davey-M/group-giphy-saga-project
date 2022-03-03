@@ -1,5 +1,7 @@
 import GifItem from "../GifItem/GifItem";
 
+import "./GifList.css";
+
 const dummyData = [
   {
     id: 1,

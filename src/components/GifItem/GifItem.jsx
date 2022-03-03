@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Button } from "@mui/material";
 
-function GifItem({ id, name, url }) {
+function GifItem({ name, url }) {
   // set favorite state (default to false)
   const [favorite, setFavorite] = useState(false);
 
@@ -19,7 +19,7 @@ function GifItem({ id, name, url }) {
   };
 
   return (
-    <li>
+    <li className='gif-card'>
       <h2>{name}</h2>
       <img src={url} alt={name} />
       <div className='favorite-buttons-container'>
