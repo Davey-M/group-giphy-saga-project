@@ -4,7 +4,7 @@ import axios from 'axios'
 function* getGifs() {
   try {
       const gifResponse = yield axios.get('/api/');
-      yield put ({ type: 'GET_GIFS', payload: gifResponse.data })
+      yield put ({ type: 'LIST_GIFS', payload: gifResponse.data })
   }
   catch(error) {
       console.log('Error GETing GIFS', error);
