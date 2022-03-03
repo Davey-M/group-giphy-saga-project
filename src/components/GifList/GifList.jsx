@@ -55,7 +55,6 @@ function GifList() {
 
   return (
     <>
-      <h1>This is the GifList component</h1>
       <div className='gif-list-container'>
         {gifList.data &&
           gifList.data.map((gif, index) => {
