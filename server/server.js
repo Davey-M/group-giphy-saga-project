@@ -25,5 +25,5 @@ app.use('/api/giphy', giphyRouter)
 
 // Listen
 app.listen(PORT, () => {
-    console.log(`Listening on port: ${PORT}`);
+  console.log(`Listening on port: ${PORT}`);
 });
