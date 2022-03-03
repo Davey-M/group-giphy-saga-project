@@ -28,6 +28,12 @@ function GifItem({ name, img_url, img_id, fav = false }) {
   // remove gif from favorite database
   const removeFavorite = () => {
     console.log("Removing Favorite");
+
+    const deleteOptions = {
+      img_id,
+    };
+    dispatch({ type: "DELETE_FAVE", payload: deleteOptions });
+
     setFavorite(false);
   };
 
