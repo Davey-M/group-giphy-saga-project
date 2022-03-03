@@ -39,7 +39,9 @@ function GifItem({ name, img_url, img_id, fav = false }) {
 
   return (
     <div className='gif-card'>
-      <img src={img_url} alt={name} />
+      <a href={img_url} target='_blank'>
+        <img src={img_url} alt={name} />
+      </a>
       <div className='favorite-overlay'>
         {!favorite && (
           <StarBorderIcon onClick={addFavorite} fontSize='medium' />
