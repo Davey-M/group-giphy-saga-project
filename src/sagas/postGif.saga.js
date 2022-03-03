@@ -4,7 +4,7 @@ import axios from 'axios'
 function* postGIF(action) {
   try {
       yield axios.post('/api/favorite', action.payload );
-      yield put({ type: 'POST_GIF'});
+      yield put({ type: 'GET_GIF'});
   }
   catch (error) {
       console.log('Error POSTing a GIF', error);

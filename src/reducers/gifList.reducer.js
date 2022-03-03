@@ -1,7 +1,7 @@
 
 const gifList = (state = [], action) => {
   switch (action.type) {
-      case 'GET_GIFS':
+      case 'LIST_GIFS':
           return action.payload;
       default:
           return state;
