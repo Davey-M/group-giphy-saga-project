@@ -1,36 +1,39 @@
-import {TextField, Button} from '@mui/material';
-import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import { TextField, Button } from "@mui/material";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const Search = () => {
+  // initialize dispatch as variable
+  const dispatch = useDispatch();
 
-    // initialize dispatch as variable
-    const dispatch = useDispatch();
+  // declare local state
+  const [search, setSearch] = useState("");
 
-    // declare local state
-    const [search, setSearch] = useState('');
+  // sends search query to saga to populate related gifs on button click
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log("in handleSubmit");
 
-    // sends search query to saga to populate related gifs on button click
-    function handleSubmit(event) {
-        event.preventDefault();
-        console.log('in handleSubmit');
+    dispatch({ type: "GET_GIFS", payload: search });
+  }
 
-        dispatch({type: 'GET_GIFS', payload: search});
-    }
+  return (
+    <>
+      {/* <h1>Search</h1> */}
+      <form onSubmit={handleSubmit}>
+        <TextField
+          placeholder='search for a gif!'
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
+        />
 
-    return (
-        <>
-         <h1>Search</h1>
-         <form onSubmit={handleSubmit}>
-            <TextField
-                placeholder="search for a gif!"
-                onChange={(event) => {setSearch(event.target.value)}}
-            />
-
-            <Button type="submit" type="contained">Search</Button>
-         </form>
-        </>
-    )
-}
+        <Button type='submit' type='contained'>
+          Search
+        </Button>
+      </form>
+    </>
+  );
+};
 
 export default Search;
