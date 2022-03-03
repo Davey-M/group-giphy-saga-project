@@ -11,24 +11,24 @@ import gifList from './reducers/gifList.reducer'
 import getGifs from './sagas/getGifs.saga'
 import postGif from './sagas/postGif.saga'
 
+const sagaMiddleware = createSagaMiddleware();
 
 const storeInstance = createStore(
   combineReducers({
-      gifList,
+    gifList,
   }),
   applyMiddleware(sagaMiddleware, logger),
 );
 
-
 function* watcherSaga() {
-      yield takeEvery('GET_GIFS', getGifs)
-      yield takeEvery('POST_GIF', postGif)
-  }
+  yield takeEvery('GET_GIFS', getGifs)
+  yield takeEvery('POST_GIF', postGif)
+}
 
-const sagaMiddleware = createSagaMiddleware();
+sagaMiddleware.run(watcherSaga);
 
 ReactDOM.render(
   <Provider store={storeInstance}>
-    <App/>
+    <App />
   </Provider>,
-document.getElementById('root'));
+  document.getElementById('root'));
