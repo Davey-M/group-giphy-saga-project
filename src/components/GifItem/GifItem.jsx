@@ -5,9 +5,9 @@ import { Button } from "@mui/material";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 
-function GifItem({ name, url }) {
+function GifItem({ name, img_url, fav = false }) {
   // set favorite state (default to false)
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(fav);
 
   // add gif to favorite database
   const addFavorite = () => {
@@ -23,7 +23,7 @@ function GifItem({ name, url }) {
 
   return (
     <div className='gif-card'>
-      <img src={url} alt={name} />
+      <img src={img_url} alt={name} />
       <div className='favorite-overlay'>
         {!favorite && (
           <StarBorderIcon onClick={addFavorite} fontSize='medium' />
@@ -32,17 +32,6 @@ function GifItem({ name, url }) {
       </div>
       <div className='name-overlay'>
         <h2>{name}</h2>
-        <div className='favorite-buttons-container'>
-          {/* {!favorite ? (
-            <Button variant='contained' onClick={addFavorite}>
-              Favorite
-            </Button>
-          ) : (
-            <Button variant='outlined' onClick={removeFavorite}>
-              Remove Favorite
-            </Button>
-          )} */}
-        </div>
       </div>
     </div>
   );
