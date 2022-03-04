@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 import GifList from "../GifList/GifList";
@@ -9,11 +8,6 @@ import Favorites from "../Favorites/Favorites"
 import "./App.css";
 
 function App(props) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch({ type: "GET_GIFS", payload: "dwayne the rock" });
-  }, []);
 
   return (
     <Router>
@@ -31,7 +25,7 @@ function App(props) {
           <Search />
           <GifList />
         </Route>
-        <Route path="favorites" exact>
+        <Route path="/favorites" exact>
           <Favorites />
         </Route>
       </div>

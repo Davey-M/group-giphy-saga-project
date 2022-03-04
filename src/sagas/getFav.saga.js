@@ -5,7 +5,7 @@ function* getFav() {
   try {
 
     const favResponse = yield axios.get(`/api/favorite/`);
-    yield put({ type: 'GET_FAV_GIFS', payload: favResponse.data })
+    yield put({ type: 'GET_FAV', payload: favResponse.data })
   }
   catch (error) {
     console.log('Error GETing Fav GIFS', error);

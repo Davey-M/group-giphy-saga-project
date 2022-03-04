@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   .then((result)=>{
     console.log('GET', result);
     res.send(result.rows)
-    res.sendStatus(200);
+
   }).catch((error)=>{
     console.log('GET ERROR', error);
     res.sendStatus(500);
