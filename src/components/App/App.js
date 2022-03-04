@@ -26,12 +26,12 @@ function App(props) {
           </li>
         </ul>
       <div>
-        <Route path="/">
+        <Route path="/" exact>
           <h1>Giphy Search!</h1>
           <Search />
           <GifList />
         </Route>
-        <Route>
+        <Route path="favorites" exact>
           <Favorites />
         </Route>
       </div>
