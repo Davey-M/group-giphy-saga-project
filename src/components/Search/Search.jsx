@@ -2,6 +2,8 @@ import { TextField, Button } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import "./Search.css";
+
 const Search = () => {
   // initialize dispatch as variable
   const dispatch = useDispatch();
@@ -19,16 +21,16 @@ const Search = () => {
 
   return (
     <>
-      {/* <h1>Search</h1> */}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='search-form'>
         <TextField
           placeholder='search for a gif!'
           onChange={(event) => {
             setSearch(event.target.value);
           }}
+          size='small'
         />
 
-        <Button type='submit' type='contained'>
+        <Button type='submit' variant='contained'>
           Search
         </Button>
       </form>

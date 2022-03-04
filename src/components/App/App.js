@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import GifList from '../GifList/GifList';
 import Search from '../Search/Search';
 
+import './App.css'
+
 function App(props) {
 
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ function App(props) {
   return (
     <div>
       <h1>Giphy Search!</h1>
-      <Search/>
+      <Search />
       <GifList />
     </div>
   );

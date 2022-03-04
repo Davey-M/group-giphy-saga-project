@@ -1,0 +1,6 @@
+.search-form {
+  display: flex;
+  margin: 10px;
+  align-items: flex-end;
+  gap: 10px;
+}
