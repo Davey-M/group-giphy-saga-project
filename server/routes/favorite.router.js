@@ -5,7 +5,16 @@ const router = express.Router();
 
 // return all favorite images
 router.get('/', (req, res) => {
-  res.sendStatus(200);
+  const queryText = `SELECT * FROM "favorites";`;
+  pool.query(queryText)
+  .then((result)=>{
+    console.log('GET', result);
+    res.send(result.rows)
+    res.sendStatus(200);
+  }).catch((error)=>{
+    console.log('GET ERROR', error);
+    res.sendStatus(500);
+  })
 });
 
 // add a new favorite
@@ -27,9 +36,24 @@ router.post('/', (req, res) => {
 });
 
 // update given favorite with a category id
-router.put('/:favId', (req, res) => {
+router.put('/:img_id', (req, res) => {
   // req.body should contain a category_id to add to this favorite image
-  res.sendStatus(200);
+  let {category_id} = req.body;
+  let img_id = req.params.img_id;
+  let queryText = `UPDATE "favorites" SET "category_id" = $1 WHERE "img_id" = $2;`;
+  const values = [category_id, img_id];
+
+  pool.query(queryText, values)
+    .then((result) => {
+      console.log('Update successful');
+      
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('Error updating', error);
+      
+      res.sendStatus(500);
+    })
 });
 
 // delete a favorite
