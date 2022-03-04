@@ -2,7 +2,8 @@ import GifItem from "../GifItem/GifItem";
 
 import "./GifList.css";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {useEffect} from 'react';
 
 const dummyData = [
   {
@@ -52,6 +53,12 @@ const dummyData = [
 
 function GifList() {
   const gifList = useSelector((store) => store.gifList);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "GET_GIFS", payload: "dwayne the rock" });
+  }, []);
 
   return (
     <>

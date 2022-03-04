@@ -1,9 +1,16 @@
 import GifItem from "../GifItem/GifItem";
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {useEffect} from 'react';
 
 function Favorites() {
 
-  const favGifList = useSelector((store) => store.getFav);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "GET_FAVORITES"});
+  }, []);
+
+  const favGifList = useSelector((store) => store.gifFav);
 
   console.log(favGifList);
 

@@ -15,7 +15,7 @@ import gifFav from './reducers/getFav.reducer';
 import getGifs from "./sagas/getGifs.saga";
 import postGif from "./sagas/postGif.saga";
 import deleteGif from "./sagas/deleteGifs.saga";
-import getFav from "./reducers/getFav.reducer";
+import getFav from './sagas/getFav.saga';
 import updateCategory from "./sagas/updateCategory.saga";
 
 const sagaMiddleware = createSagaMiddleware();
